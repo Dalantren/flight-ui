@@ -71,9 +71,9 @@ struct MainSearch: View {
 
             }
             .padding()
-            .scaledToFill()
         }
         .padding(.horizontal, 30)
+        .frame( height: 350)
 
     }
 }
