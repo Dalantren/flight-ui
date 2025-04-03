@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct HeaderMainView: View {
-
-    let secondaryTextColor = Color.gray
-
     var body: some View {
         VStack(alignment: .leading, spacing: 40) {
             HStack {
@@ -22,10 +19,10 @@ struct HeaderMainView: View {
 
                     HStack {
                         Image(systemName: "mappin.circle")
-                            .foregroundColor(secondaryTextColor)
+                            .foregroundColor(.secondary)
                         Text("Solo, Central Java")
                             .font(.subheadline)
-                            .foregroundColor(secondaryTextColor)
+                            .foregroundColor(.secondary)
                     }
                 }
                 
@@ -53,10 +50,9 @@ struct HeaderMainView: View {
 
                 Text("Explore new place, Get new experience")
                     .font(.subheadline)
-                    .foregroundColor(secondaryTextColor)
+                    .foregroundColor(.secondary)
             }
         }
-        .padding(.horizontal)
     }
 }
 

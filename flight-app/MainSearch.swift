@@ -72,7 +72,7 @@ struct MainSearch: View {
             }
             .padding()
         }
-        .padding(.horizontal, 30)
+        .padding(.horizontal)
         .frame( height: 350)
 
     }
