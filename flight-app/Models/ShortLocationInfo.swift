@@ -9,4 +9,4 @@ struct ShortLocationInfo {
     let fullName: String
     let shortcode: String
     let departureTime: String
-}
+}	

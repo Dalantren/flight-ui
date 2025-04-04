@@ -13,6 +13,12 @@ struct CustomTextFieldView: View {
     @State var width: CGFloat = .infinity;
     @FocusState private var isFocused: Bool;
     
+    var isLabelActive: Bool {
+        get {
+            isFocused || !input.isEmpty;
+        }
+    }
+    
     var body: some View {
         ZStack (alignment: .leading) {
             RoundedRectangle(cornerRadius: 10)
@@ -24,12 +30,13 @@ struct CustomTextFieldView: View {
             TextField("", text: $input)
                 .padding(.leading, 10)
                 .focused($isFocused)
+                .foregroundColor(.primary)
                 .overlay(alignment: .leading) {
                     Text(placeholder)
                         .foregroundColor(.secondary)
                         .padding(.horizontal, 10)
-                        .offset(x: 0, y: isFocused ? -15 : 0)
-                        .font(.system(size: isFocused ? 12 : 16, weight: .light))
+                        .offset(x: 0, y: isLabelActive ? -15 : 0)
+                        .font(.system(size: isLabelActive ? 12 : 16, weight: .light))
                 }
         }
         .frame(width: width, height: 50)

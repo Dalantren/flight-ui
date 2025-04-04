@@ -8,27 +8,37 @@
 import SwiftUI
 
 struct MainView: View {
+    @State var selectedTab: String = "home"
+    
     var body: some View {
-        MainScreenBG {
-            HeaderMainView()
-
-            MainSearch()
-            
-            HStack {
-                Text("Today's Schedule")
-                    .fontWeight(.bold)
-                    .foregroundColor(.black)
-                    .font(.title2)
-                Spacer()
-                Button("View all") {
-                    
+        TabView(selection: $selectedTab) {
+            HomeScreenTabView()
+                .tabItem {
+                    Image(systemName: "house")
+                    Text("Home")
                 }
-                .foregroundColor(.secondary)
-                .font(.subheadline)
-            }
+                .tag("home")
             
-            FlightShortView(flightInfo: flightInfo)
-
+            Text("Calendar")
+                .tabItem {
+                    Image(systemName: "calendar")
+                    Text("Calendar")
+                }
+                .tag("calendar")
+            
+            Text("Tickets")
+                .tabItem {
+                    Image(systemName: "ticket")
+                    Text("Tickets")
+                }
+                .tag("tickets")
+            
+            Text("Account")
+                .tabItem {
+                    Image(systemName: "person.fill")
+                    Text("Account")
+                }
+                .tag("account")
         }
     }
 }

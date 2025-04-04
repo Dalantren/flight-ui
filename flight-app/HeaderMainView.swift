@@ -19,11 +19,9 @@ struct HeaderMainView: View {
 
                     HStack {
                         Image(systemName: "mappin.circle")
-                            .foregroundColor(.secondary)
                         Text("Solo, Central Java")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
                     }
+                    .font(.subheadline)
                 }
                 
                 Spacer()
@@ -50,7 +48,6 @@ struct HeaderMainView: View {
 
                 Text("Explore new place, Get new experience")
                     .font(.subheadline)
-                    .foregroundColor(.secondary)
             }
         }
     }
