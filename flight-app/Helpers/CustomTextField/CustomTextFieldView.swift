@@ -22,7 +22,7 @@ struct CustomTextFieldView: View {
     var body: some View {
         ZStack (alignment: .leading) {
             RoundedRectangle(cornerRadius: 10)
-                .fill(.mainBg)
+                .fill(.bgPrimary)
                 .onTapGesture {
                     self.isFocused = true
                 }
@@ -30,10 +30,10 @@ struct CustomTextFieldView: View {
             TextField("", text: $input)
                 .padding(.leading, 10)
                 .focused($isFocused)
-                .foregroundColor(.primary)
+                .foregroundStyle(.textPrimary)
                 .overlay(alignment: .leading) {
                     Text(placeholder)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.textCaption)
                         .padding(.horizontal, 10)
                         .offset(x: 0, y: isLabelActive ? -15 : 0)
                         .font(.system(size: isLabelActive ? 12 : 16, weight: .light))

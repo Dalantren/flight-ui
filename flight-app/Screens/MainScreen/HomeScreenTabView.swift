@@ -18,13 +18,13 @@ struct HomeScreenTabView: View {
                 HStack {
                     Text("Today's Schedule")
                         .fontWeight(.bold)
-                        .foregroundColor(.black)
+                        .foregroundStyle(.textPrimary)
                         .font(.title2)
                     Spacer()
                     Button("View all") {
                         
                     }
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.textCaption)
                     .font(.subheadline)
                 }
                 

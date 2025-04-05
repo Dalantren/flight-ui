@@ -27,7 +27,7 @@ struct MainSearch: View {
         
         ZStack {
             RoundedRectangle(cornerRadius: 10)
-                .fill(Color(#colorLiteral(red: 0.9999999404, green: 1, blue: 1, alpha: 1)))
+                .fill(.bgCard)
                             
             VStack(spacing: spacing) {
                 Picker("Travel Type", selection: $travelType) {
@@ -64,8 +64,8 @@ struct MainSearch: View {
                 } label: {
                     Text("Search Commuter Line")
                         .frame(maxWidth: .infinity, maxHeight: 50)
-                        .background(Color(#colorLiteral(red: 0.1120006219, green: 0.314208746, blue: 0.8139246106, alpha: 1)))
-                        .foregroundColor(.white)
+                        .background(.bgAccent)
+                        .foregroundStyle(.textAccent)
                         .fontWeight(.bold)
                         .cornerRadius(10)
                 }

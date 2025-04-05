@@ -21,6 +21,7 @@ struct HeaderMainView: View {
                         Image(systemName: "mappin.circle")
                         Text("Solo, Central Java")
                     }
+                    .opacity(0.5)
                     .font(.subheadline)
                 }
                 
@@ -35,7 +36,7 @@ struct HeaderMainView: View {
                         .frame(width: 40, height: 40)
                         .overlay {
                             Image(systemName: "bell.badge")
-                                .foregroundStyle(.red, .white)
+                                .foregroundStyle(.red, .textAccent)
                         }
                 }
                     
@@ -47,12 +48,17 @@ struct HeaderMainView: View {
                     .padding(.bottom, 2)
 
                 Text("Explore new place, Get new experience")
+                    .opacity(0.5)
                     .font(.subheadline)
             }
         }
+        .foregroundStyle(.textAccent)
     }
 }
 
 #Preview {
-    HeaderMainView()
+    ZStack {
+        Color(.bgAccent)
+        HeaderMainView()
+    }
 }
