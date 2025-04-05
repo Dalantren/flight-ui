@@ -9,7 +9,19 @@ import SwiftUI
 
 struct SchedulesListView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            ScrollView {
+                ForEach(0..<20) { _ in
+                    FlightShortView(flightInfo: flightInfo, showDetails: true, price: 5000, description: "Almost Empty"
+                    )
+                }
+            }
+        }
+        .padding()
+        .background(.mainBg)
+        .toolbar {
+            Text("Hello")
+        }
     }
 }
 

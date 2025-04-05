@@ -60,9 +60,7 @@ struct MainSearch: View {
                 
                 
                 NavigationLink {
-                    MainScreenBG {
-                        Text("BITCH")
-                    }
+                    SchedulesListView()
                 } label: {
                     Text("Search Commuter Line")
                         .frame(maxWidth: .infinity, maxHeight: 50)

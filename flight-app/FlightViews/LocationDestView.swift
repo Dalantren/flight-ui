@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LocationDestView: View {
     @State var location: ShortLocationInfo
+    @State var selected = false
     
     var body: some View {
         VStack(spacing: 10) {
@@ -16,11 +17,10 @@ struct LocationDestView: View {
             Text(location.shortcode)
                 .font(.title)
                 .fontWeight(.bold)
-                .foregroundColor(.appBlue)
+                .foregroundColor(selected ? .white : .appBlue)
             Text(location.departureTime)
         }
         .font(.caption)
-        .foregroundColor(.secondary)
     }
 }
 
