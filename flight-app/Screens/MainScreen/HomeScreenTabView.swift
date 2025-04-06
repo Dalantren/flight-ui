@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeScreenTabView: View {
+    @State private var suggestedFlight = flightInfo
+    
     var body: some View {
         NavigationStack {
             MainScreenBG {
@@ -28,7 +30,7 @@ struct HomeScreenTabView: View {
                     .font(.subheadline)
                 }
                 
-                FlightShortView(flightInfo: flightInfo)
+                FlightShortView(flightInfo: $suggestedFlight, selected: .constant(false))
                 
             }
         }

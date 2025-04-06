@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct flight_appApp: App {
+struct flightApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct CustomTextFieldView: View {
     @Binding var input: String;
-    @State var placeholder = ""
-    @State var width: CGFloat = .infinity;
+    var placeholder = ""
+    var width: CGFloat = .infinity;
     @FocusState private var isFocused: Bool;
     
     var isLabelActive: Bool {

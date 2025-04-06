@@ -8,17 +8,13 @@
 import SwiftUI
 
 struct FlightShortView: View {
-    @State var flightInfo: FlightShortInfo
-    @State var selected = false
-    @State var showDetails: Bool = false
-    @State var price: Int?
-    @State var description: String?
-    
+    @Binding var flightInfo: FlightInfo
+    @Binding var selected: Bool
     
     var body: some View {
         VStack {
             HStack {
-                LocationDestView(location: flightInfo.departure, selected: selected)
+                LocationDestView(location: flightInfo.departure, selected: $selected)
                 
                 Spacer()
                 
@@ -57,33 +53,31 @@ struct FlightShortView: View {
                 
                 Spacer()
                 
-                LocationDestView(location: flightInfo.arrival, selected: selected)
+                LocationDestView(location: flightInfo.arrival, selected: $selected)
             }
 
-            if (showDetails) {
-                if let description = description, let price = price {
-                    HStack (alignment: .center, spacing: 0) {
-                        Circle()
-                            .frame(width: 20, height: 20)
-                        
-                        DashLineView(dashPattern: [10])
-
-                        Circle()
-                            .frame(width: 20, height: 20)
-                    }
-                    .padding(.horizontal, -25)
-                    .foregroundStyle(.bgPrimary)
+            if let details = flightInfo.details {
+                HStack (alignment: .center, spacing: 0) {
+                    Circle()
+                        .frame(width: 20, height: 20)
                     
-                    HStack(spacing: 0) {
-                        Text(description)
-                        Spacer()
-                        Text(price.description + " ₽")
-                            .foregroundStyle(selected ? .textAccent : .textCardAccent)
-                        Text("/Trip")
-                            .font(.caption)
-                    }
-                    .foregroundStyle(.textCaption)
+                    DashLineView(dashPattern: [10])
+
+                    Circle()
+                        .frame(width: 20, height: 20)
                 }
+                .padding(.horizontal, -25)
+                .foregroundStyle(.bgPrimary)
+                
+                HStack(spacing: 0) {
+                    Text(details.note)
+                    Spacer()
+                    Text(details.price.description + " ₽")
+                        .foregroundStyle(selected ? .textAccent : .textCardAccent)
+                    Text("/Trip")
+                        .font(.caption)
+                }
+                .foregroundStyle(.textCaption)
             }
         }
         .padding(15)
@@ -93,10 +87,9 @@ struct FlightShortView: View {
 }
 
 #Preview {
-    FlightShortView(flightInfo: flightInfo)
+    FlightShortView(flightInfo: .constant(flightInfo), selected: .constant(false))
     
-    
-    FlightShortView(flightInfo: flightInfo, showDetails: true, price: 5000, description: "Almost Empty", )
-    
-    FlightShortView(flightInfo: flightInfo, selected: true, showDetails: true, price: 5000, description: "Almost Empty")
+    FlightShortView(flightInfo: .constant(flightInfoDetailed), selected: .constant(false))
+
+    FlightShortView(flightInfo: .constant(flightInfoDetailed), selected: .constant(true))
 }

@@ -40,7 +40,6 @@ struct MainScreenBG<V: View>: View {
              }
              .padding(.horizontal)
              .frame(width: screenSizes.width)
-//             .foregroundStyle(.white)
          }
      }
 }

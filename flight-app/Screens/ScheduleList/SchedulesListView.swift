@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct SchedulesListView: View {
-    @State var selectedIndex: Int?;
+    @State private var selectedIndex: Int?;
+    @State private var flight = flightInfoDetailed
     
     var body: some View {
         VStack {
             ScrollView {
-                ForEach(0..<20) { index in
-                    FlightShortView(flightInfo: flightInfo, selected: index == selectedIndex, showDetails: true, price: 5000, description: "Almost Empty"
-                    )
+                ForEach(0..<10) { index in
+                    FlightShortView(
+                        flightInfo: $flight,
+                        selected: .constant(index == selectedIndex)
+                    ).onTapGesture {
+                        selectedIndex = index == selectedIndex ? nil : index
+                    }
                 }
             }
         }

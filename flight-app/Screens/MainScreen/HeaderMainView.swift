@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct HeaderMainView: View {
+    private let dateFormatter = DateFormatter()
+    
+    init() {
+        dateFormatter.dateFormat =  "EEEE, d MMM y"
+    }
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 40) {
             HStack {
                 VStack(alignment: .leading) {
-                    Text("Thursday, 23 Feb 2023")
+                    Text(dateFormatter.string(from:Date.now))
                         .font(.system(size: 20, weight: .bold, design: .default))
                         .padding(.bottom, 2)
 

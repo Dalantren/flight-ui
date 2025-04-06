@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct LocationDestView: View {
-    @State var location: ShortLocationInfo
-    @State var selected = false
+    var location: ShortLocationInfo
+    @Binding var selected: Bool
     
     var body: some View {
         VStack(spacing: 10) {
@@ -27,16 +27,14 @@ struct LocationDestView: View {
 }
 
 #Preview {
-    let selected = false
-    
     ZStack {
-        Color(selected ? .bgAccent : .bgCard)
-        LocationDestView(location: arrival, selected:  selected)
+        Color(.bgCard)
+        LocationDestView(location: arrival, selected: .constant(false))
     }
-//    ZStack {
-//        Color(.bgAccent)
-//        LocationDestView(location: arrival, selected: true)
-//    }
+    ZStack {
+        Color(.bgAccent)
+        LocationDestView(location: arrival, selected: .constant(true))
+    }
 
 
 }
